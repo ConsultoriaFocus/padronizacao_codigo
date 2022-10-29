@@ -1,8 +1,14 @@
+https://dev.to/vitordevsp/padronizacao-de-codigo-com-eslint-e-editorconfig-33op
+https://github.com/standard/standard/blob/master/README.md#install
+
+- Menu
+  - [Configuracao](#configurar)
+
 # EditorConfig
 
 estensao que facilita a padronizacao, definindo espaco do t
 
-# Como configurar
+# Configurar
 
 ao criar o projeto com
 `npx create-react-app my-app --template typescript`
