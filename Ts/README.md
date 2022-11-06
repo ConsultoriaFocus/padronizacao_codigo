@@ -10,10 +10,9 @@
       - [Constructors](#constructors)
       - [Private](#private)
       - [Parametros](#parametros)
-      - [Get and Set](#get-and-set)
     - [Variaveis](#variaveis)
       - [Definir Array](#definir-array)
-      - [Inteirar Array](#inteirar-array)
+      - [Iterar Array](#iterar-array)
       - [Switch](#switch)
       - [Comparação](#comparação)
     - [Funções](#funções)
@@ -26,9 +25,9 @@
 
 ## Nomes
 
-### os nomes precisam ser claros para que novos leitores consigam entender
+### Os nomes precisam ser claros para que novos leitores consigam entender
 
-- <b>Exeção:</b> codigos muito curtos (maximo de 10 linhas)
+- <b>Exceção:</b> códigos muito curtos (maximo de 10 linhas)
 
 | Style            | Category                                                           |
 | :--------------- | :----------------------------------------------------------------- |
@@ -39,7 +38,7 @@
 
 ## Constantes
 
-`CONSTANT_CASE` é usado para sinalizar que a variavel nao deve ser modificada
+`CONSTANT_CASE` é usado para sinalizar que a variável não deve ser modificada
 
 ```typescript
 const MY_SPECIAL_NUMBER = 5;
@@ -53,20 +52,20 @@ class Foo {
 }
 ```
 
-# comentarios
+# Comentários
 
-## Tipos de comentarios
+## Tipos de comentários
 
-existem dois tipos principais de comentarios em Typescript `//**...*/` e `//...`
+existem dois tipos principais de comentários em Typescript `//**...*/` e `//...`
 
-- use `//**...*/` para comentarios que o usuario do codigo deva ler
-- use `//...` para comentar linhas de codigo
+- use `//**...*/` para comentários que o usuario do código deva ler
+- use `//...` para comentar linhas de código
 
-## Comentarios Uteis
+## Comentários úteis
 
-faça comentarios que adicionem informcao ao codigo.</br>
-normalmente o nome da variavel ja é auto explicativa,</br>
-portanto somente use `@param` e `@return` se forem adicionar informacao.
+faça comentários que adicionem informção ao código.</br>
+normalmente o nome da variável ja é auto explicativa,</br>
+portanto somente use `@param` e `@return` se forem adicionar informação.
 
 ```typescript
 /**
@@ -89,7 +88,7 @@ encher(quantosMl: number, xicara: Xicara) {
 
 ## Constructors
 
-chamda de Constructors devem ter parenteses mesmo que nao tenham parametros
+chamda de Constructors devem ter parenteses mesmo que não tenham parametros
 
 ```typescript
 const x = new Cafe();
@@ -97,7 +96,7 @@ const x = new Cafe();
 
 ## private
 
-use `private` para variaveis privadas, inves de `#`, pois é mais eficiente para Typescript
+use `private` para variáveis privadas, inves de `#`, pois é mais eficiente para Typescript
 
 ```typescript
 class Xicara {
@@ -130,6 +129,7 @@ class Cafeteria {
 }
 ```
 
+<!--
 ## get and set
 
 é bom usar para controlar o uso das variaveis
@@ -147,10 +147,11 @@ class Xicara {
   }
 }
 ```
+-->
 
-# Variaveis
+# Variáveis
 
-sempre use `cont` ou `let` para definir variaveis
+sempre use `cont` ou `let` para definir variáveis
 
 ```typescript
 const c = valor;
@@ -159,7 +160,7 @@ let l = 0;
 
 Não use `var`, porque pode causar conflitos e bugs complicados, alem de dificultar a leitura do codigo;
 
-### Nunca use Primitive Types
+### Nunca instancie
 
 ```typescript
 /** errado */
@@ -188,16 +189,16 @@ const d = Array.from<number>({ length: 5 }).fill(0);
 // d = [0,0,0,0,0]
 ```
 
-## Inteirar Array
+## Iterar Array
 
-Não use `for (__ in __)` e `forEach` para interar o array.
+Não use `for (__ in __)` e `forEach` para iterar o array.
 
 ```typescript
 for (const x of Arr) {
   // x é um valor do Arr.
 }
 for (let i = 0; i < Arr.length; i++) {
-  // forma padrao de inteirar.
+  // forma padrao de iterar.
   const x = Arr[i];
   // ...
 }
@@ -208,7 +209,7 @@ for (const [i, x] of Arr.entries()) {
 
 ## Switch
 
-todos os `switch` devem ter o `default`, mesmo que nao tenha codigo
+todos os `switch` devem ter o `default`, mesmo que não tenha código
 
 ```typescript
 switch (x) {
@@ -233,7 +234,7 @@ if (x === 1 && y !== "1") {
 }
 ```
 
-- <b>Exeção:</b> ao comparar com `null` deve usar `==` ou `!=` para tambem comparar com `undefined`
+- <b>Exceção:</b> ao comparar com `null` deve usar `==` ou `!=` para também comparar com `undefined`
 
 ```typescript
 if (x == null) {
@@ -245,7 +246,7 @@ if (x == null) {
 
 ## Arrow functions
 
-não é recomnedado que Arrow functions sejam parametros exeto se for Event Handlers.
+não é recomendado que Arrow functions sejam parametros exceto se forem Event Handlers.
 
 ```typescript
 /** nao use assim*/
@@ -309,8 +310,8 @@ minhaFuncao(function () {
 
 # import
 
-os imports para outros arquivos do projeto devem começar com `./` ou `../`
-tente limitar o numero de diretorios (`../../../`) para ficar mais facil de entender
+- Os imports para outros arquivos do projeto devem começar com `./` ou `../`
+- Tente limitar o numero de diretorios (`../../../`) para ficar mais facil de entender
 
 ### module import
 
@@ -345,7 +346,7 @@ export default class Cafe { ... }
 ```
 
 ```typescript
-/** perimte que ocorra esse problema com o nome dos modulos
+/** default exports perimte que o mesmo import tenha qualquer nome
  *  prejudicando a leitura do codigo
  */
 import Cafe from "./cafe";
