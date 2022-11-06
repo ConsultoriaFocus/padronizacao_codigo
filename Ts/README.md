@@ -1,20 +1,26 @@
-- https://google.github.io/styleguide/tsguide.html
-- https://dev.to/vitordevsp/padronizacao-de-codigo-com-eslint-e-editorconfig-33op
-- https://github.com/standard/standard/blob/master/README.md#install
-
 - Menu
   - [Sintaxe](#sintaxe)
     - [Nomes](#nomes)
-    - [Import](#import)
     - [Constantes](#constantes)
   - [Comentarios](#comentarios)
     - [Tipos](#tipos-de-comentarios)
     - [Comentarios Uteis](#comentarios-uteis)
   - [Padrões de Código](#padrões-de-código)
     - [Classes](#classes)
+      - [Constructors](#constructors)
+      - [Private](#private)
+      - [Parametros](#parametros)
+      - [Get and Set](#get-and-set)
     - [Variaveis](#variaveis)
+      - [Definir Array](#definir-array)
+      - [Inteirar Array](#inteirar-array)
+      - [Switch](#switch)
+      - [Comparação](#comparação)
     - [Funções](#funções)
+      - [Arrow functions](#arrow-functions)
+      - [Event Handlers](#event-handlers)
     - [Import](#import)
+    - [Export](#export)
 
 # Sintaxe
 
@@ -81,7 +87,7 @@ encher(quantosMl: number, xicara: Xicara) {
 
 # Classes
 
-### Constructors
+## Constructors
 
 chamda de Constructors devem ter parenteses mesmo que nao tenham parametros
 
@@ -89,7 +95,7 @@ chamda de Constructors devem ter parenteses mesmo que nao tenham parametros
 const x = new Cafe();
 ```
 
-## privado
+## private
 
 use `private` para variaveis privadas, inves de `#`, pois é mais eficiente para Typescript
 
@@ -106,7 +112,7 @@ class Xicara {
 
 use para marcar as propriedades que nunca sao redefinidas fora do constructor
 
-### Parametros
+## Parametros
 
 inicialize o parametro no constructor
 
@@ -124,7 +130,7 @@ class Cafeteria {
 }
 ```
 
-### get and set
+## get and set
 
 é bom usar para controlar o uso das variaveis
 
@@ -167,7 +173,7 @@ const b = false;
 const n = 5;
 ```
 
-### Definir Array
+## Definir Array
 
 Não se deve inicializar um array com `Array()`, se precisar use o `from` para iniciar o Array com tamanho definido
 
@@ -182,7 +188,7 @@ const d = Array.from<number>({ length: 5 }).fill(0);
 // d = [0,0,0,0,0]
 ```
 
-### inteirar Array
+## Inteirar Array
 
 Não use `for (__ in __)` e `forEach` para interar o array.
 
@@ -200,7 +206,7 @@ for (const [i, x] of Arr.entries()) {
 }
 ```
 
-### Switch
+## Switch
 
 todos os `switch` devem ter o `default`, mesmo que nao tenha codigo
 
@@ -218,7 +224,7 @@ switch (x) {
 }
 ```
 
-### Comparação
+## Comparação
 
 sempre use `===` ou `!==` para comparar igualdades
 
@@ -237,7 +243,7 @@ if (x == null) {
 
 # Funções
 
-### Arrow functions
+## Arrow functions
 
 não é recomnedado que Arrow functions sejam parametros exeto se for Event Handlers.
 
@@ -267,7 +273,7 @@ class Xicara {
 }
 ```
 
-### Event Handlers
+## Event Handlers
 
 se tiver que "desinstalar" a função depois, então use
 
@@ -287,7 +293,7 @@ class Botao {
 
 Classes normalmente não devem ter arrow functions como propriedades
 
-sempre use arrow functions em expressoes
+sempre use arrow functions em expressões
 
 ```typescript
 /** use */
@@ -301,7 +307,7 @@ minhaFuncao(function () {
 });
 ```
 
-## import
+# import
 
 os imports para outros arquivos do projeto devem começar com `./` ou `../`
 tente limitar o numero de diretorios (`../../../`) para ficar mais facil de entender
@@ -324,7 +330,7 @@ import * as botoes from "./botoes";
 botoes.botao9;
 ```
 
-## export
+# export
 
 use assim
 
