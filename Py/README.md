@@ -6,6 +6,7 @@
   - [Expaços](#expaços)
   - [Comentarios](#comentarios)
   - [Import](#import)
+  - [Venv](#venv)
 
 ## Nome
 
@@ -189,3 +190,29 @@ evite usar `+=` pois aumenta a complexidade do codigo, use como uma lista e depo
     items.append('</table>')
     employee_table = ''.join(items)
 ```
+# Venv
+Para editar o código, é recomendado criar uma virtual machine de python(caso não tenha feito para este repositório), para maior gestão dos pacotes utilizando os comandos:
+
+bash
+## Criar a máquina virtual
+python -m venv .venv
+
+Para "Entrar" na máquina virtual deve-se usar:
+bash
+source .venv/Scripts/activate.ps1 # No Windows
+## Vale ressaltar que no Windows deve usar o git-bash e não o PowerShell
+
+source .venv/bin/activate # No Linux
+
+## Baixando Pacotes do Projeto
+Logo em seguida deve-se baixar os pacotes referentes à este projeto utilizando:
+bash
+pip install -r requirements.txt
+
+## Adicionando Pacotes ao requirements.txt
+Caso você esteja desenvolvendo cada vez mais este projeto e precise adicionar dependências de pacotes, você pode apenas instalar, e após finalizar pode adicioná-los ao requirements.txt utilizando o comando:
+
+bash
+pip freeze > requirements.txt
+
+*Não se esqueça de commitar seu código com as alterações devidas.*
