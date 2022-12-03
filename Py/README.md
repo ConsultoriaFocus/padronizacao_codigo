@@ -7,6 +7,8 @@
   - [Comentarios](#comentarios)
   - [Import](#import)
   - [Venv](#venv)
+  - [Comparação](#comparação)
+  - [Generator Expressions](#generator-expressions)
 
 ## Nome
 
@@ -170,7 +172,7 @@ das classes exportadas ou funcoes
 
 ## String
 
-Não use `+` para formatar strings, tente usar outros metodos
+evite usar `+` para formatar strings, tente usar outros metodos
 
 ```py
     x = f'nome: {nome}; score: {n}'
@@ -181,7 +183,7 @@ Não use `+` para formatar strings, tente usar outros metodos
     x = a + b
 ```
 
-evite usar `+=` pois aumenta a complexidade do codigo, use como uma lista e depois junte com o `join`
+evite usar `+=` pois aumenta a complexidade do codigo, faça uma lista e depois junte com o `join`
 
 ```py
     items = ['<table>']
@@ -190,6 +192,48 @@ evite usar `+=` pois aumenta a complexidade do codigo, use como uma lista e depo
     items.append('</table>')
     employee_table = ''.join(items)
 ```
+
+## Comparação
+
+`0, None, [], {}, ''` todos eles sao falsos em um contexto booleano<br>
+portanto nao use `==` para comparar com `True` ou `False`<br>
+isso ira trazer mais problemas do que beneficios,<br>
+mas mesmo assim é importante tomar decisoes que deixem o codigo mais claro para quem for ler
+```py
+# faça dessa forma
+if not user:
+    print('sem usuario')
+if x % 10 == 0:
+    print(f'{x}: é multiplo de 10')
+
+# evite isso
+if len(user) == 0:
+    print('sem usuario')
+if not x % 10:
+    print(f'{x}: é multiplo de 10')
+```
+
+## Generator Expressions
+se for uma expressao simples pode se usar, se passar de mais de duas expressoes nao use
+```py
+# Sim
+quadrado = [x*x for x in range(5)]
+# quadrado = [0, 1, 4, 9, 16]
+raiz = [x for x in range(20) if sqrt(x) % 1 == 0]
+# raiz = [0, 1, 4, 9, 16]
+
+result = []
+for x in range(10):
+    for y in range(5):
+        if x * y > 10:
+            result.append((x, y))
+            
+# Nao faca nessa complexidade
+result = [(x, y) for x in range(10) for y in range(5) if x * y > 10]
+
+```
+
+
 # Venv
 Para editar o código, é recomendado criar uma virtual machine de python(caso não tenha feito para este repositório), para maior gestão dos pacotes utilizando os comandos:
 
